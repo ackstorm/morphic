@@ -10,7 +10,6 @@ type HistoryContainerProps = {
 const HistoryContainer: React.FC<HistoryContainerProps> = async ({
   location
 }) => {
-  const UserId = await getUserId()
   return (
     <div
       className={location === 'header' ? 'block sm:hidden' : 'hidden sm:block'}
