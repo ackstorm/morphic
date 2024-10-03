@@ -1,16 +1,10 @@
 import { notFound, redirect } from 'next/navigation'
 import { Chat } from '@/components/chat'
-import { getChat } from '@/lib/actions/chat'
+import { getChat, getUserId } from '@/lib/actions/chat'
 import { AI } from '@/app/actions'
 import { headers } from 'next/headers'
 
 export const maxDuration = 60
-
-async function getUserId() {
-    'use server'
-    const headersList = headers()
-    return headersList.get('X-Forwarded-Email') || 'anonymous-id-page'
-}
 
 export interface SearchPageProps {
   params: {
