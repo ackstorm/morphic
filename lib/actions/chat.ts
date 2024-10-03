@@ -4,9 +4,16 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { type Chat } from '@/lib/types'
 import { getRedisClient, RedisWrapper } from '@/lib/redis/config'
+import { headers } from 'next/headers'
 
 async function getRedis(): Promise<RedisWrapper> {
   return await getRedisClient()
+}
+
+export async function getUserId() {
+    'use server'
+    const headersList = headers()
+    return headersList.get('X-Forwarded-Email') || 'anonymous'
 }
 
 export async function getChats(userId?: string | null) {
