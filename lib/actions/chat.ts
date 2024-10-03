@@ -13,7 +13,7 @@ async function getRedis(): Promise<RedisWrapper> {
 export async function getUserId() {
     'use server'
     const headersList = headers()
-    return headersList.get('X-Forwarded-Email') || 'anonymous'
+    return headersList.get('X-Forwarded-Email') || 'anonymous-cat.ts'
 }
 
 export async function getChats(userId?: string | null) {
