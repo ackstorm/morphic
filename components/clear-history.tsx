@@ -22,7 +22,7 @@ type ClearHistoryProps = {
 }
 
 export function ClearHistory({ empty }: ClearHistoryProps) {
-  const userId = await getUserId()
+  const userId = getUserId()
   const [open, setOpen] = useState(false)
   const [isPending, startTransition] = useTransition()
   return (
