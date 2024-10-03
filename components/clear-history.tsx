@@ -22,7 +22,6 @@ type ClearHistoryProps = {
 }
 
 export function ClearHistory({ empty }: ClearHistoryProps) {
-  const userId = getUserId()
   const [open, setOpen] = useState(false)
   const [isPending, startTransition] = useTransition()
   return (
@@ -47,6 +46,7 @@ export function ClearHistory({ empty }: ClearHistoryProps) {
             onClick={event => {
               event.preventDefault()
               startTransition(async () => {
+                const userId = await getUserId()
                 const result = await clearChats(userId)
                 if (result?.error) {
                   toast.error(result.error)
