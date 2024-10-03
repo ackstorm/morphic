@@ -140,12 +140,15 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
           >
             <Typewriter
               options={{
-                strings: [
-                  'ACKstorm AI search',
-                  ''
-                ],
-                autoStart: true,
-                loop: true
+                loop: true,
+                delay: 80
+              }}
+              onInit={typewriter => {
+                typewriter
+                  .pauseFor(100)
+                  .typeString('ACKstorm AI search')
+                  .pauseFor(400)
+                  .start()
               }}
             />
           </div>
