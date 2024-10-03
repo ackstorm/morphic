@@ -14,6 +14,7 @@ export async function HistoryList() {
   const chats = await loadChats(userId)
 
   return (
+    <div className="ackstorm">userId: {userId}</div>
     <div className="flex flex-col flex-1 space-y-3 h-full">
       <div className="flex flex-col space-y-0.5 flex-1 overflow-y-auto">
         {!chats?.length ? (
