@@ -27,7 +27,7 @@ const MAX_MESSAGES = 6
 async function getUserId() {
     'use server'
     const headersList = headers()
-    return headersList.get('X-Forwarded-Email') || 'anonymous'
+    return headersList.get('X-Forwarded-Email') || 'anonymous-actions'
 }
 
 async function submit(
