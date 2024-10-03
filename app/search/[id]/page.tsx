@@ -9,7 +9,7 @@ export const maxDuration = 60
 async function getUserId() {
     'use server'
     const headersList = headers()
-    return headersList.get('X-Forwarded-Email') || 'anonymous'
+    return headersList.get('X-Forwarded-Email') || 'unknown'
 }
 
 export interface SearchPageProps {
