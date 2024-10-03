@@ -17,6 +17,7 @@ export async function getUserId() {
 }
 
 export async function getChats(userId?: string | null) {
+  userId = await getUserId()
   if (!userId) {
     return []
   }
