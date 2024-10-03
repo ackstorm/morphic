@@ -187,7 +187,7 @@ export const AI = createAI<AIState, UIState>({
       title,
       messages: updatedMessages
     }
-    await saveChat(chat)
+    await saveChat(chat, userId)
   }
 })
 
