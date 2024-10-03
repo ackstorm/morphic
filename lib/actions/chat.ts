@@ -11,7 +11,6 @@ async function getRedis(): Promise<RedisWrapper> {
 }
 
 export async function getUserId() {
-    'use server'
     const headersList = headers()
     return headersList.get('X-Forwarded-Email') || 'anonymous-lib-actions-chat.ts'
 }
