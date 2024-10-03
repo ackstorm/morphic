@@ -4,16 +4,12 @@ import { Chat } from '@/lib/types'
 import { getChats, getUserId } from '@/lib/actions/chat'
 import { ClearHistory } from './clear-history'
 
-type HistoryListProps = {
-  userId?: string
-}
-
 const loadChats = cache(async (userId?: string) => {
   return await getChats(userId)
 })
 
 // Start of Selection
-export async function HistoryList({ userId }: HistoryListProps) {
+export async function HistoryList() {
   const userId = await getUserId()
   const chats = await loadChats(userId)
 
