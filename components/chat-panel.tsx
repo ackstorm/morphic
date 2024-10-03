@@ -12,7 +12,6 @@ import { EmptyScreen } from './empty-screen'
 import Textarea from 'react-textarea-autosize'
 import { generateId } from 'ai'
 import { useAppState } from '@/lib/utils/app-state'
-import Typewriter from 'typewriter-effect'
 
 interface ChatPanelProps {
   messages: UIState
@@ -138,19 +137,7 @@ export function ChatPanel({ messages, query }: ChatPanelProps) {
               height: '60px'
             }}
           >
-            <Typewriter
-              options={{
-                loop: true,
-                delay: 80
-              }}
-              onInit={typewriter => {
-                typewriter
-                  .pauseFor(100)
-                  .typeString('ACKstorm AI search')
-                  .pauseFor(400)
-                  .start()
-              }}
-            />
+            ACKstorm AI search
           </div>
         </div>
         {/* <div className="relative  mb-4 flex items-center w-full">
