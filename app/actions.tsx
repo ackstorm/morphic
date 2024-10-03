@@ -20,8 +20,15 @@ import RetrieveSection from '@/components/retrieve-section'
 import { VideoSearchSection } from '@/components/video-search-section'
 import { AnswerSection } from '@/components/answer-section'
 import { workflow } from '@/lib/actions/workflow'
+import { headers } from 'next/headers'
 
 const MAX_MESSAGES = 6
+
+async function getUserId() {
+    'use server'
+    const headersList = headers()
+    return headersList.get('X-Forwarded-Email') || 'unknown'
+}
 
 async function submit(
   formData?: FormData,
@@ -154,7 +161,7 @@ export const AI = createAI<AIState, UIState>({
 
     const { chatId, messages } = state
     const createdAt = new Date()
-    const userId = 'anonymous'
+    const userId = await getUserId()
     const path = `/search/${chatId}`
     const title =
       messages.length > 0
