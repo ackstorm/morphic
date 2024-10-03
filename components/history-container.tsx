@@ -2,7 +2,6 @@ import React from 'react'
 import { History } from './history'
 import { HistoryList } from './history-list'
 import { headers } from 'next/headers'
-import { getUserId } from '@/lib/actions/chat'
 
 type HistoryContainerProps = {
   location: 'sidebar' | 'header'
@@ -17,7 +16,7 @@ const HistoryContainer: React.FC<HistoryContainerProps> = async ({
       className={location === 'header' ? 'block sm:hidden' : 'hidden sm:block'}
     >
       <History location={location}>
-        <HistoryList userId="{UserId}" />
+        <HistoryList userId="anonymous" />
       </History>
     </div>
   )
